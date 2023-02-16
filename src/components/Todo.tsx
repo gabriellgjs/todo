@@ -33,26 +33,27 @@ export function Todo() {
     setTaskTitle("");
   }
   return (
-    <div className="bg-white w-[60%] h-[auto] justify-center m-auto relative top-32 rounded-2xl">
+    <div className="bg-slate-400 w-[60%] h-full justify-center m-auto relative top-32 rounded-2xl">
       <div className="flex justify-between items-center flex-row p-14 text-zinc-800">
-        <span className="font-bold text-3xl">Minhas tasks</span>
+        <span className="font-bold text-3xl">Minhas tarefas</span>
 
         <div className="flex items-center justify-center">
           <form onSubmit={handleCreateTask}>
             <input
               type="text"
-              className="w-80 p-4 h-10 border border-zinc-400 rounded"
-              placeholder="Adicionar novo todo"
+              className="w-80 p-4 h-10 border border-slate-500 rounded bg-slate-100 outline-none"
+              placeholder="Adicionar nova tarefa"
               onChange={(event) => setTaskTitle(event.target.value)}
               value={taskTitle}
             />
 
-            <button type="submit" className="p-3 bg-green-600 ml-1 rounded-md">
+            <button type="submit" className="p-3 bg-green-600 ml-1 rounded-md hover:brightness-125 transition-all duration-200 ">
               <CheckSquare size={16} color="white" />
             </button>
           </form>
         </div>
       </div>
+      <div className="pb-5">
         {
           tasks.map(task => (
               <Task 
@@ -63,6 +64,7 @@ export function Todo() {
               />
           ))
         }
+      </div>
     </div>
   );
 }
